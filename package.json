@@ -1,0 +1,16 @@
+{
+  "name": "toy-report-service",
+  "version": "1.0.0",
+  "main": "ToyReportServiceApplication.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "eureka-js-client": "^4.5.0",
+    "express": "^4.19.2"
+  }
+}
