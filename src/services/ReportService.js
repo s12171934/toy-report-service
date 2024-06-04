@@ -1,4 +1,5 @@
 const { getRedis } = require('../config/RedisConfig');
+const { produceBoardDelete } = require('../config/kafkaProducer');
 
 const procReport = async (req) => {
   const username = JSON.parse(req.headers.passport).username;
@@ -26,6 +27,7 @@ const procReport = async (req) => {
     redis.del(boardId);
 
     // board db에서 게시물 삭제하는 로직 ++
+    produceBoardDelete(boardId);
   }
 
   return true;
