@@ -1,3 +1,4 @@
+//Spring Config Server에서 GITHUB repo의 board-dev.yml의 config를 가져옴
 const axios = require("axios");
 
 let config;

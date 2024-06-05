@@ -1,3 +1,4 @@
+//Redis 연결을 위한 설정
 const Redis = require("ioredis");
 const { getConfig } = require("./SpringConfigClient");
 

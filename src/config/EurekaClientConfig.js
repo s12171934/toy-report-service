@@ -1,3 +1,4 @@
+//Eureka client 설정파일
 const Eureka = require("eureka-js-client").Eureka;
 const { getConfig } = require("./SpringConfigClient");
 

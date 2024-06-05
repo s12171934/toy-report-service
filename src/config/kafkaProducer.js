@@ -1,3 +1,4 @@
+//Kafka Event Producer 설정 및 produce function
 const { Kafka } = require('kafkajs');
 const { getConfigData } = require('./SpringConfigClient');
 
@@ -17,6 +18,7 @@ const getProducer = async () => {
   return globalProducer;
 }
 
+//누적 신고수에 의해 게시물 삭제가 필요시 event 발생
 const produceBoardDelete = async (boardId) => {
   const producer = await getProducer();
 
