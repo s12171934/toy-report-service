@@ -12,7 +12,7 @@ const getConfig = async () => {
     const response = await axios.get(
       "http://admin:admin1234@localhost:9000/report/dev"
     );
-    config = response.data.propertySourrces[0].source;
+    config = response.data.propertySources[0].source;
     return config;
   } catch (error) {
     console.error("Error fetching config", error);

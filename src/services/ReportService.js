@@ -1,5 +1,5 @@
 const { getRedis } = require('../config/RedisConfig');
-const { produceBoardDelete } = require('../config/kafkaProducer');
+const { sendEvent } = require('../config/kafkaProducer');
 
 const procReport = async (req) => {
   const username = JSON.parse(req.headers.passport).username;
@@ -30,7 +30,10 @@ const procReport = async (req) => {
     redis.del(boardId);
 
     //Board DB에서 게시물 삭제
-    produceBoardDelete(boardId);
+    sendEvent('delete-board', [boardId]);
+
+    //삭제된 후에 알림 전송
+    sendEvent('report-my-board-events', username + '::' + boardId);
   }
 
   return true;

@@ -19,21 +19,19 @@ const getProducer = async () => {
 }
 
 //누적 신고수에 의해 게시물 삭제가 필요시 event 발생
-const produceBoardDelete = async (boardId) => {
+const sendEvent = async (topic, message) => {
   const producer = await getProducer();
 
   await producer.connect();
 
   await producer.send({
-    topic: 'board-delete',
-    messages: [
-      boardId
-    ]
+    topic: topic,
+    messages: message
   });
 
-  console.log('Message send to Kafka:' + boardId);
+  console.log('Message send to Kafka:' + message);
 
   await producer.disconnect();
 }
 
-module.exports = { produceBoardDelete };
+module.exports = { sendEvent };
